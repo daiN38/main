@@ -107,7 +107,7 @@ function renderLatestNews() {
           createLatestNewsElement(article)
         ); // 각 기사에 대해 최신 뉴스 요소를 생성합니다.
 
-        latestNewsList.appendChild(...articleList); // 생성된 요소들을 리스트에 추가합니다.
+        latestNewsList.append(...articleList); // 생성된 요소들을 리스트에 추가합니다.
       })
       .finally(() => {
         hideSpinner(latestNewsList); // 로딩이 끝나면 스피너를 숨깁니다.
