@@ -78,7 +78,7 @@ function renderTopNews() {
       .then((res) => res.json()) // 응답을 JSON 형식으로 변환합니다.
       .then((data) => {
         const { articles } = data; // 구조 분해 할당으로 articles 배열을 추출합니다.
-        const articleList = data.map((article) =>
+        const articleList = articles.map((article) =>
           createTopNewsElement(article)
         ); // 각 기사에 대해 상위 뉴스 요소를 생성합니다.
 
