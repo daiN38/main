@@ -8,10 +8,11 @@ function createLatestNewsElement(article) {
   const listItem = document.createElement('li'); // 새로운 리스트 아이템(li 태그)을 생성합니다.
   const anchor = document.createElement('a'); // 새로운 앵커(a 태그)를 생성합니다.
 
-  anchor.href = link; // 앵커에 href 속성을 설정하여 링크를 지정합니다.
+  // anchor.href = link; // 앵커에 href 속성을 설정하여 링크를 지정합니다.
+  anchor.setAttribute('href',link); // 앵커에 href 속성을 설정하여 링크를 지정합니다.
   anchor.textContent = title; // 앵커의 텍스트 내용을 뉴스 제목으로 설정합니다.
 
-  listItem.className = 'top-news-list'; // 리스트 아이템에 클래스를 추가합니다.
+  listItem.className = 'latest-news-item'; // 리스트 아이템에 클래스를 추가합니다.
   listItem.append(anchor); // 앵커를 리스트 아이템에 추가합니다.
 
   return listItem; // 완성된 리스트 아이템을 반환합니다.
@@ -22,7 +23,8 @@ function createTopNewsElement(article) {
   const { title, summary, link, thumbnailImage } = article; // 구조 분해 할당을 사용해 article 객체에서 여러 속성을 추출합니다.
 
   const anchor = document.createElement('a'); // 새로운 앵커를 생성합니다.
-  anchor.href = link; // 앵커에 href 속성을 설정합니다.
+  // anchor.href = link; // 앵커에 href 속성을 설정합니다.
+  anchor.setAttribute('href', link); // 앵커에 href 속성을 설정합니다.
   anchor.innerHTML = 
   `
   <article class="news">
