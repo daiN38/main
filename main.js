@@ -1,5 +1,5 @@
 // spinner.js 모듈에서 'createSpinner' 함수를 가져옵니다.
-import { createSpinner } from spinner.js;
+import { createSpinner } from './spinner.js';
 
 // 최신 뉴스 아이템을 생성하는 함수입니다.
 function createLatestNewsElement(article) {
@@ -23,7 +23,18 @@ function createTopNewsElement(article) {
 
   const anchor = document.createElement('a'); // 새로운 앵커를 생성합니다.
   anchor.href = link; // 앵커에 href 속성을 설정합니다.
-  anchor.innerHTML = summary; // 앵커의 내부 HTML을 설정하여 뉴스 아이템의 구조를 구성합니다.
+  anchor.innerHTML = 
+  `
+  <article class="news">
+    <div class="information">
+      <h3 class="title">${title}</h3>
+      <p class="description">${summary}</p>
+    </div>
+    <div class="thumbnail-area">
+      <img src="${thumbnailImage}" alt="thumbnail" class="thumbnail" />
+    </div>
+  </article>
+  `; // 앵커의 내부 HTML을 설정하여 뉴스 아이템의 구조를 구성합니다.
 
   return anchor; // 완성된 앵커를 반환합니다.
 }
@@ -90,7 +101,7 @@ function renderLatestNews() {
       .then((res) => res.json()) // 응답을 JSON으로 변환합니다.
       .then((data) => {
         const { articles } = data; // 구조 분해 할당으로 articles 배열을 추출합니다.
-        const articleList = data.map((article) =>
+        const articleList = articles.map((article) =>
           createLatestNewsElement(article)
         ); // 각 기사에 대해 최신 뉴스 요소를 생성합니다.
 
